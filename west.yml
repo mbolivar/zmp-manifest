@@ -10,15 +10,28 @@ manifest:
   remotes:
     - name: foundriesio
       url-base: https://github.com/foundriesio
+    - name: NordicPlayground
+      url-base: https://github.com/NordicPlayground
 
   projects:
     # Zephyr and MCUboot
-    - name: zephyr
+    - name: fw-nrfconnect-zephyr
+      path: zephyr
+      remote: NordicPlayground
       west-commands: scripts/west-commands.yml
-    - name: mcuboot
+    - name: fw-nrfconnect-mcuboot
+      path: mcuboot
+      remote: NordicPlayground
     - name: mbedtls
       path: mcuboot/sim/mcuboot-sys/mbedtls
       revision: 60fbd5bdf05c223b641677204469b53c2ff39d4e
+
+    # Additional nRF91 SDK repositories.
+    - name: fw-nrfconnect-nrf
+      remote: NordicPlayground
+      path: nrf
+    - name: nrfxlib
+      remote: NordicPlayground
 
     # Sample apps; just one for now
     - name: dm-lwm2m
